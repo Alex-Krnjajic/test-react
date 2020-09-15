@@ -23,7 +23,8 @@ class Todo extends Component {
           {""}
           {this.props.todoProp.title}
           <button
-            /*onClick={this.props.delTodo.bind(this, id)} */ style={btnStyle}
+            onClick={this.props.delTodo.bind(this, this.props.todoProp.id)}
+            style={btnStyle}
           >
             x
           </button>
@@ -33,7 +34,7 @@ class Todo extends Component {
   }
 }
 Todo.propTypes = {
-  todo: PropTypes.object.isRequired,
+  todoProp: PropTypes.object.isRequired,
 };
 const btnStyle = {
   background: "#ff0000",

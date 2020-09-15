@@ -4,12 +4,23 @@ import "./App.css";
 
 class App extends Component {
   markComplete = (id) => {
+    console.log("delete todo:" + id);
+
     this.setState({
       Todos: this.state.Todos.map((Todo) => {
         if (Todo.id === id) {
           Todo.completed = !Todo.completed;
         }
 
+        return Todo;
+      }),
+    });
+  };
+  delTodo = (id) => {
+    this.setState({
+      Todos: this.state.Todos.map((Todo) => {
+        if (Todo.id === id) {
+        }
         return Todo;
       }),
     });
@@ -38,8 +49,9 @@ class App extends Component {
     return (
       <div className="App">
         <Todos
-          Todos={this.state.Todos}
+          todos={this.state.Todos}
           markComplete={this.markComplete}
+          delTodo={this.delTodo}
         ></Todos>
       </div>
     );
