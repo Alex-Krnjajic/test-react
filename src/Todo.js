@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 class Todo extends Component {
   getStyle() {
     return {
-      backgroundColor: "red",
+      backgroundColor: "purple",
       textDecoration: this.props.todoProp.completed ? "line-through" : "none",
     };
   }
@@ -22,6 +22,11 @@ class Todo extends Component {
           />{" "}
           {""}
           {this.props.todoProp.title}
+          <button
+            /*onClick={this.props.delTodo.bind(this, id)} */ style={btnStyle}
+          >
+            x
+          </button>
         </p>
       </div>
     );
@@ -29,6 +34,15 @@ class Todo extends Component {
 }
 Todo.propTypes = {
   todo: PropTypes.object.isRequired,
+};
+const btnStyle = {
+  background: "#ff0000",
+  color: "#fff",
+  border: "none",
+  padding: "5px 9px",
+  borderRadius: "50%",
+  cursor: "pointer",
+  float: "right",
 };
 
 export default Todo;
